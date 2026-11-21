@@ -673,16 +673,16 @@ document.querySelectorAll("[data-n]").forEach(function(el){io.observe(el)});
 
 /* ===== PHOTOS: put each image in an "images" folder next to this file, then write its path here ===== */
 var PHOTOS={
-  about:"images/about.jpg",
-  opening:"images/opening.jpg",
-  tour:"images/tour.jpg",
-  debate:"images/debate.jpg",
-  crisis:"images/crisis.jpg",
-  social:"images/social.jpg",
-  closing:"images/closing.jpg",
-  mini:"images/mini.jpg",
-  ihsan:"images/ihsan.jpg",
-  ahas:"images/ahas.jpg"
+  about:"about.jpg",
+  opening:"opening.jpg",
+  tour:"tour.jpg",
+  debate:"debate.jpg",
+  crisis:"crisis.jpg",
+  social:"social.jpg",
+  closing:"closing.jpg",
+  mini:"mini.jpg",
+  ihsan:"ihsan.jpg",
+  ahas:"ahas.jpg"
 };
 [].forEach.call(document.querySelectorAll("[data-photo]"),function(el){var u=PHOTOS[el.dataset.photo];if(u){el.style.backgroundImage='url("'+u+'")';el.style.backgroundSize="cover";el.style.backgroundPosition="center";el.style.borderStyle="solid";el.textContent="";el.setAttribute("role","img");el.setAttribute("aria-label","Photo")}});
 
