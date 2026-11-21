@@ -204,6 +204,17 @@ position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;
 #cd,.btn{position:relative;z-index:2}
 #plane{position:fixed;left:0;top:calc(env(safe-area-inset-top,0px) + 76px);z-index:25;font-size:1.1rem;color:var(--maroon);pointer-events:none;transition:left .15s linear}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}.cards:not(.in) .hang{opacity:1}}
+
+/* FIX: countdown readable (dark text on cream boxes, like the reference) */
+#cd div{background:var(--cream);color:var(--ink);border:2px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:.9rem .4rem}
+#cd b{color:var(--ink);display:block;font:800 clamp(2rem,6vw,3.4rem)/1 var(--disp);font-variant-numeric:tabular-nums}
+#cd span{color:var(--ink);display:block;margin-top:.45rem}
+@media(max-width:520px){#cd b{font-size:1.7rem}}
+/* FIX: photos no longer cut off by the next section */
+#top{overflow:visible;padding-bottom:2.5rem}
+.collage{margin:2.2rem auto 0!important;align-items:flex-start}
+.collage figure{aspect-ratio:3/4;height:auto;flex:1 1 0;min-width:0}
+#why{padding-top:5rem}
 </style>
 </head>
 <body>
