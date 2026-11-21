@@ -166,6 +166,13 @@ position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;
 @keyframes printout{from{transform:translateY(-100%)}}
 @keyframes grab{to{transform:translateY(46px) scale(1.08);opacity:.6}}
 #swt{margin:1rem 0 0;color:#2b2d31;font-style:italic;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.tbox{position:relative;display:inline-block;max-width:min(1000px,100%);margin:1.6rem 0 0;padding:clamp(2.2rem,4vw,3.2rem) clamp(1.2rem,4vw,3.5rem) clamp(1.6rem,3vw,2.6rem);background:var(--cream);border:3px solid var(--ink);border-radius:clamp(26px,4vw,40px);box-shadow:8px 8px 0 var(--ink)}
+.tbox .kicker{margin:0 0 1rem;background:var(--sage);transform:none}
+#top .tbox h1{font-size:clamp(2.1rem,6.6vw,5.4rem);line-height:.98;max-width:none;margin:0;text-wrap:balance}
+.pillw{display:inline;border:0;background:none;padding:0;color:var(--maroon)}
+.tbox .s-date{position:absolute;top:-18px;right:6%;left:auto;margin:0}
+.tbox .star{left:-34px;top:-44px;width:84px;height:84px}
+@media(max-width:900px){.tbox .star{display:none}}
 #plane{position:fixed;left:0;top:calc(env(safe-area-inset-top,0px) + 76px);z-index:25;font-size:1.1rem;color:var(--maroon);pointer-events:none;transition:left .15s linear}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}.cards:not(.in) .hang{opacity:1}}
 </style>
@@ -201,10 +208,12 @@ position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;
 
 <header id="top">
 <div class="wrap">
+<div class="tbox">
 <span class="star" aria-hidden="true"></span>
 <span class="stk s-date">4 – 6 Dec 2026</span>
 <p class="kicker">International Islamic University Malaysia</p>
 <h1>IIUM Model <span class="pillw">United Nations</span> Conference 2026</h1>
+</div>
 <p class="date">4 – 6 December 2026</p>
 <div id="cd" aria-live="off"></div>
 <a class="btn fill" href="#register">Register now <i aria-hidden="true">↗</i></a><a class="btn" href="#committees">View committees</a>
