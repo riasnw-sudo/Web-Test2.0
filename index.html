@@ -673,16 +673,16 @@ document.querySelectorAll("[data-n]").forEach(function(el){io.observe(el)});
 
 /* ===== PHOTOS: put each image in an "images" folder next to this file, then write its path here ===== */
 var PHOTOS={
-about:"",      /* e.g. "images/about.jpg" */
-opening:"",    /* opening ceremony (use a past year's photo) */
-tour:"",       /* university tour */
-debate:"",     /* council session */
-crisis:"",     /* crisis simulation */
-social:"",     /* social night */
-closing:"",    /* closing ceremony and awards */
-mini:"",       /* IIUM Mini Auditorium */
-ihsan:"",      /* Ihsan Hub */
-ahas:""        /* AHAS KIRKHS */
+  about:"images/about.jpg",
+  opening:"images/opening.jpg",
+  tour:"images/tour.jpg",
+  debate:"images/debate.jpg",
+  crisis:"images/crisis.jpg",
+  social:"images/social.jpg",
+  closing:"images/closing.jpg",
+  mini:"images/mini.jpg",
+  ihsan:"images/ihsan.jpg",
+  ahas:"images/ahas.jpg"
 };
 [].forEach.call(document.querySelectorAll("[data-photo]"),function(el){var u=PHOTOS[el.dataset.photo];if(u){el.style.backgroundImage='url("'+u+'")';el.style.backgroundSize="cover";el.style.backgroundPosition="center";el.style.borderStyle="solid";el.textContent="";el.setAttribute("role","img");el.setAttribute("aria-label","Photo")}});
 
