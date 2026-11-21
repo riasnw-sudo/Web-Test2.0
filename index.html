@@ -332,6 +332,22 @@ h2{overflow-wrap:anywhere}
 }
 @media(max-width:380px){.brand{font-size:1.1rem}.brand .bl{width:38px;height:38px}.brand .bl img{width:27px;height:27px}}
 @media(max-width:600px){#chairrows td:nth-child(2),.scroll table:has(#chairrows) th:nth-child(2){display:none}}
+
+/* photos keep their original shape: no tilt, no cropping */
+.has-img{aspect-ratio:auto!important;background:none!important;padding:0!important;display:block!important;transform:none!important;overflow:hidden;border-style:solid!important}
+.has-img img{display:block;width:100%;height:auto}
+.hl figure,.hl figure:nth-child(odd),.hl figure:nth-child(even){transform:none;margin-top:0}
+.hl{align-items:start}
+@media(min-width:900px){.hl{grid-template-columns:repeat(3,1fr);gap:2rem 1.8rem}}
+.bigph{transform:none}
+.bigph.has-img{border-radius:22px}
+@media(min-width:900px){.hl .ph.has-img{aspect-ratio:4/3!important;display:grid!important;place-items:center;background:rgba(244,236,216,.07)!important}.hl .has-img img{width:100%;height:100%;object-fit:contain}}
+
+/* all photos use the 3:2 landscape format */
+.hl .ph,.bigph,.vph,.hl .ph.has-img,.bigph.has-img,.vph.has-img{aspect-ratio:3/2!important;height:auto!important;max-height:none!important}
+.has-img{position:relative;display:block!important}
+.hl .has-img img,.bigph.has-img img,.vph.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bigph{transform:none!important}
 </style>
 </head>
 <body>
@@ -406,7 +422,7 @@ h2{overflow-wrap:anywhere}
 <p>MUN provides a practical and immersive learning experience in international relations, diplomacy, and public speaking.</p>
 <p>IIUMMUN is open to secondary school and university students, first-timers and experienced delegates, local and international. The conference is inclusive while maintaining high academic and debate standards.</p>
 </div>
-<figure class="bigph" data-photo="about">Photo placeholder · images/about.jpg</figure>
+<figure class="bigph" data-photo="about">Photo placeholder · about.jpg</figure>
 </div>
 <div class="gain">
 <p>Confidence in public speaking and communication</p><p>Strong negotiation and diplomacy skills</p><p>Critical thinking and problem-solving</p><p>Leadership and teamwork experience</p><p>Exposure to global issues and international perspectives</p>
@@ -431,12 +447,12 @@ h2{overflow-wrap:anywhere}
 <div class="wrap">
 <h2 data-s="Moments">Conference highlights</h2>
 <div class="hl">
-<figure><div class="ph" data-photo="opening">Photo placeholder · images/opening.jpg</div><figcaption>Opening ceremony</figcaption></figure>
-<figure><div class="ph" data-photo="debate">Photo placeholder · images/debate.jpg</div><figcaption>Council sessions with structured debates</figcaption></figure>
-<figure><div class="ph" data-photo="crisis">Photo placeholder · images/crisis.jpg</div><figcaption>Crisis simulations that test real-time decision-making</figcaption></figure>
-<figure><div class="ph" data-photo="tour">Photo placeholder · images/tour.jpg</div><figcaption>University tour for full board participants</figcaption></figure>
-<figure><div class="ph" data-photo="social">Photo placeholder · images/social.jpg</div><figcaption>Social and networking night</figcaption></figure>
-<figure><div class="ph" data-photo="closing">Photo placeholder · images/closing.jpg</div><figcaption>Closing ceremony and awards presentation</figcaption></figure>
+<figure><div class="ph" data-photo="opening">Photo placeholder · opening.jpg</div><figcaption>Opening ceremony</figcaption></figure>
+<figure><div class="ph" data-photo="debate">Photo placeholder · debate.jpg</div><figcaption>Council sessions with structured debates</figcaption></figure>
+<figure><div class="ph" data-photo="crisis">Photo placeholder · crisis.jpg</div><figcaption>Crisis simulations that test real-time decision-making</figcaption></figure>
+<figure><div class="ph" data-photo="tour">Photo placeholder · tour.jpg</div><figcaption>University tour for full board participants</figcaption></figure>
+<figure><div class="ph" data-photo="social">Photo placeholder · social.jpg</div><figcaption>Social and networking night</figcaption></figure>
+<figure><div class="ph" data-photo="closing">Photo placeholder · closing.jpg</div><figcaption>Closing ceremony and awards presentation</figcaption></figure>
 </div>
 </div>
 </section>
@@ -480,9 +496,9 @@ h2{overflow-wrap:anywhere}
 
 <div class="lpanel" id="lp-venues" role="tabpanel" aria-labelledby="lt-venues" hidden>
 <div class="vgrid">
-<article class="vcard"><div class="vph" data-photo="mini">Photo placeholder · images/mini.jpg</div><h3>IIUM Mini Auditorium</h3><p>Opening ceremony and closing ceremony.</p></article>
-<article class="vcard"><div class="vph" data-photo="ihsan">Photo placeholder · images/ihsan.jpg</div><h3>Ihsan Hub</h3><p>Social night.</p></article>
-<article class="vcard"><div class="vph" data-photo="ahas">Photo placeholder · images/ahas.jpg</div><h3>AHAS KIRKHS</h3><p>Abdul Hamid Abu Sulayman Kulliyyah of Islamic Revealed Knowledge and Human Sciences. All council sessions are held here.</p></article>
+<article class="vcard"><div class="vph" data-photo="mini">Photo placeholder · mini.jpg</div><h3>IIUM Mini Auditorium</h3><p>Opening ceremony and closing ceremony.</p></article>
+<article class="vcard"><div class="vph" data-photo="ihsan">Photo placeholder · ihsan.jpg</div><h3>Ihsan Hub</h3><p>Social night.</p></article>
+<article class="vcard"><div class="vph" data-photo="ahas">Photo placeholder · ahas.jpg</div><h3>AHAS KIRKHS</h3><p>Abdul Hamid Abu Sulayman Kulliyyah of Islamic Revealed Knowledge and Human Sciences. All council sessions are held here.</p></article>
 </div>
 <h3 class="sub2">Council rooms</h3>
 <div class="scroll"><table><thead><tr><th>Council</th><th>Room</th></tr></thead><tbody id="roomrows"></tbody></table></div>
@@ -601,7 +617,7 @@ h2{overflow-wrap:anywhere}
 <p><a href="#terms">Terms and conditions</a></p>
 <p>Instagram <a href="https://instagram.com/IIUMMUNC26">@IIUMMUNC26</a> · TikTok <a href="https://tiktok.com/@IIUMMUN26">@IIUMMUN26</a></p>
 <p><a href="mailto:iiummunconfgeneral@gmail.com">iiummunconfgeneral@gmail.com</a></p>
-<p><!-- Replace with Linktree QR: assets/images/linktree-qr.png --> We look forward to having you aboard with IIUMMUNC 26’</p>
+<p><!-- Replace with Linktree QR: assets/linktree-qr.png --> We look forward to having you aboard with IIUMMUNC 26’</p>
 </footer>
 
 <script>
@@ -684,7 +700,7 @@ var PHOTOS={
   ihsan:"ihsan.jpg",
   ahas:"ahas.jpg"
 };
-[].forEach.call(document.querySelectorAll("[data-photo]"),function(el){var u=PHOTOS[el.dataset.photo];if(u){el.style.backgroundImage='url("'+u+'")';el.style.backgroundSize="cover";el.style.backgroundPosition="center";el.style.borderStyle="solid";el.textContent="";el.setAttribute("role","img");el.setAttribute("aria-label","Photo")}});
+[].forEach.call(document.querySelectorAll("[data-photo]"),function(el){var u=PHOTOS[el.dataset.photo];if(u){el.textContent="";el.classList.add("has-img");var im=new Image();im.src=u;im.alt=el.dataset.photo+" photo";im.loading="lazy";var t="Photo placeholder · "+u;im.onerror=function(){el.classList.remove("has-img");el.textContent=t+" (not found)"};el.appendChild(im)}});
 
 /* ===== EDITABLE: resources, chairs, departments (paste real links here) ===== */
 var LINKTREE="https://linktr.ee/iiummun26committeeaffairs";
