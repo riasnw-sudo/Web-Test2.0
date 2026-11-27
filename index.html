@@ -348,6 +348,7 @@ h2{overflow-wrap:anywhere}
 .has-img{position:relative;display:block!important}
 .hl .has-img img,.bigph.has-img img,.vph.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bigph{transform:none!important}
+.chair{line-height:1.3;margin:0 0 .55rem}.chair:last-child{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -535,21 +536,22 @@ h2{overflow-wrap:anywhere}
 <div class="scroll"><table>
 <thead><tr><th>Category</th><th>Fee</th></tr></thead>
 <tbody>
-<tr><td>Early (1 May – 25 Aug)</td><td>Full board RM110 · Half board RM90</td></tr>
-<tr><td>Regular (26 Aug – 26 Sep)</td><td>Full board RM130 · Half board RM100</td></tr>
-<tr><td>Late (27 Sep – 9 Oct)</td><td>Full board RM150 · Half board RM110</td></tr>
-<tr><td>Group delegation</td><td>RM90 per delegate</td></tr>
+<tr><td>Early registration (1 May – 25 Aug)</td><td>Full board RM110 · Half board RM90</td></tr>
+<tr><td>Normal registration (26 Aug – 30 Oct)</td><td>Full board RM130 · Half board RM100</td></tr>
+<tr><td>Late registration (31 Oct – 1 Dec)</td><td>Full board RM150 · Half board RM110</td></tr>
 <tr><td>International delegates</td><td>USD 50</td></tr>
+<tr><td>IIUM delegates</td><td>RM75</td></tr>
 <tr><td>Teacher advisor</td><td>RM60</td></tr>
+<tr><td>Group delegation (maximum 5 delegates per group)</td><td>RM90 per delegate</td></tr>
 <tr><td>Observer</td><td>Full board RM60 · Half board RM50</td></tr>
 </tbody></table></div>
 <div class="calc">
 <h3>Fee calculator</h3>
-<label for="ft">Registration period</label><select id="ft"><option value="0">Early</option><option value="1">Regular</option><option value="2">Late</option></select>
+<label for="ft">Registration period</label><select id="ft"><option value="0">Early</option><option value="1">Normal</option><option value="2" selected>Late</option></select>
 <label for="fb">Board</label><select id="fb"><option value="0">Full board</option><option value="1">Half board</option></select>
 <label for="fn">Number of delegates</label><input id="fn" type="number" min="1" max="100" value="1">
 <p id="total" aria-live="polite"></p>
-<p class="note">Group delegation is RM90 per delegate.</p>
+<p class="note">Group delegation (maximum 5 delegates per group) is RM90 per delegate. International delegates pay USD 50 and IIUM delegates pay RM75; these are fixed prices.</p>
 </div>
 </div>
 </div>
@@ -707,10 +709,10 @@ var LINKTREE="https://linktr.ee/iiummun26committeeaffairs";
 /* Each row: [title, description, link]. Paste the share link between the last two quotes. */
 var RESOURCES=[
 ["Conference handbook","Schedule, venues, transport, medical and accessibility information.","handbook.pdf"],
-["HMUN Rules of Procedure","Rules of procedure used in the United Nations councils.",""],
-["Dewan Rakyat Standing Orders","Standing orders for the Parliament of Malaysia council.",""],
-["Country matrix","Country allocations for each council.",""],
-["Venue flipbook","Room-by-room venue guide with directory videos from Logistics.",""]];
+["M-HMUN Rules of Procedure","Malaysian Standardised Rules of Procedure, 6th edition (March 2026).","hmun-rop.pdf"],
+["Dewan Rakyat Standing Orders","Standing orders for the Parliament of Malaysia council.","https://docs.google.com/document/d/1yQIPKwURpIhEBMJCl_X3JqHe-t8GA7BxnGZG8zCPExY/edit?usp=sharing"],
+["Country matrix","Country allocations for each council.","https://docs.google.com/spreadsheets/d/1X7k4v7NUJFWCRi5ivoqY8c1dUJSvwDEyV5htNCxVHAo/edit?gid=1768785254#gid=1768785254"],
+["Venue flipbook","Room-by-room venue guide with directory videos from Logistics.","https://docs.google.com/document/d/1k8mY8mC8_6rOZkOHXr5k2qcxoxde82KP3rTIDVLmiDE/edit?usp=drivesdk"]];
 var CHAIRS={ /* ["Name","email"]  (leave the email as "" until you have it) */
 UNHCR:[["Chloe Lim Ming Qian",""]],
 IAEA:[["Nur Ahdia Izyan Che Ibrahim",""],["Michelle",""]],
@@ -732,7 +734,7 @@ var TEAM=[
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 $("#resgrid").innerHTML=RESOURCES.map(function(r){return'<article class="rescard"><h3>'+esc(r[0])+'</h3><p>'+esc(r[1])+'</p>'+(r[2]?'<a class="btn" href="'+esc(r[2])+'" target="_blank" rel="noopener">Open</a>':'<span class="soon">Link coming soon</span>')+'</article>'}).join("");
 $("#chairrows").innerHTML=COMMITTEES.map(function(c){var ch=CHAIRS[c[0]];
-return'<tr><td>'+esc(c[1])+'</td><td>'+esc(c[5]||"")+'</td><td>'+(ch&&ch.length?ch.map(function(x){return esc(x[0])+(x[1]?' <span class="mail">'+esc(x[1])+'</span>':'')}).join("<br>"):'<span class="soon">To be announced</span>')+'</td></tr>'}).join("");
+return'<tr><td>'+esc(c[1])+'</td><td>'+esc(c[5]||"")+'</td><td>'+(ch&&ch.length?ch.map(function(x){return'<div class="chair">'+esc(x[0])+(x[1]?' <span class="mail">'+esc(x[1])+'</span>':'')+'</div>'}).join(""):'<span class="soon">To be announced</span>')+'</td></tr>'}).join("");
 $("#team").innerHTML=TEAM.map(function(t){return'<li><b>'+esc(t[0])+'</b><span>'+esc(t[1])+'</span></li>'}).join("");
 
 
