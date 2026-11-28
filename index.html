@@ -349,6 +349,7 @@ h2{overflow-wrap:anywhere}
 .hl .has-img img,.bigph.has-img img,.vph.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bigph{transform:none!important}
 .chair{line-height:1.3;margin:0 0 .55rem}.chair:last-child{margin-bottom:0}
+.pos{display:block;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--maroon);margin-bottom:.1rem}#dlg .pos{display:inline;margin-right:.35rem}.faqmore a{font-weight:800;text-decoration:underline;text-underline-offset:3px;color:inherit}
 </style>
 </head>
 <body>
@@ -591,6 +592,7 @@ h2{overflow-wrap:anywhere}
 <details><summary>How are awards decided?</summary><p>Awards are given by council and at the discretion of the chairs.</p></details>
 <details><summary>Can observers and advisors attend?</summary><p>Yes. Observers and advisors have their own room (IRK LR 2-8) and a dedicated session on Day 2, 9:00 to 11:00 AM.</p></details>
 <details><summary>Who do I contact?</summary><p>Message @iiummunc26 on Instagram or @iiummun26 on TikTok, or email <b>iiummunconfgeneral@gmail.com</b>.</p></details>
+<details class="faqmore" open><summary>Need more answers? Open the complete FAQ</summary><p>This list covers the most common questions. For the complete FAQ, or if you have another question, please read the <a href="https://docs.google.com/document/d/1-F4DROhm4beT1rF-Jc9diJiDepYqln9_/edit?usp=drivesdk" target="_blank" rel="noopener">complete FAQ document</a>.</p></details>
 </div>
 </section>
 
@@ -713,14 +715,14 @@ var RESOURCES=[
 ["Dewan Rakyat Standing Orders","Standing orders for the Parliament of Malaysia council.","https://docs.google.com/document/d/1yQIPKwURpIhEBMJCl_X3JqHe-t8GA7BxnGZG8zCPExY/edit?usp=sharing"],
 ["Country matrix","Country allocations for each council.","https://docs.google.com/spreadsheets/d/1X7k4v7NUJFWCRi5ivoqY8c1dUJSvwDEyV5htNCxVHAo/edit?gid=1768785254#gid=1768785254"],
 ["Venue flipbook","Room-by-room venue guide with directory videos from Logistics.","https://docs.google.com/document/d/1k8mY8mC8_6rOZkOHXr5k2qcxoxde82KP3rTIDVLmiDE/edit?usp=drivesdk"]];
-var CHAIRS={ /* ["Name","email"]  (leave the email as "" until you have it) */
-UNDC:[["Syaqirah Iqbal",""]],
-UNHCR:[["Chloe Lim Ming Qian",""],["Lohasiry Kohilan Pillay",""]],
-IAEA:[["Nur Ahdia Izyan Che Ibrahim",""],["Michelle",""]],
-WB:[["Sarah Abdul Hakkim",""],["Chrismond Heng Hao Yin",""]],
-DR:[["Amirah Fatimah",""],["Wan Ahmad Raqib",""]],
-CRISIS:[["Nopal",""],["Tushar",""],["Dylan Lim",""],["Lauren Ashley Lopez",""],["Teah Yang",""]],
-UNCA:[["Shayne",""],["Dee Emeralda",""],["Chin Wei",""]]
+var CHAIRS={ /* ["Name","email","Position"]  (leave the email as "" until you have it) */
+UNHCR:[["Lohasiry Kohilan Pillay","","Head Chair"],["Chloe Lim Ming Qian","","Co-Chair"]],
+UNDC:[["Syaqirah Binti Ahmad Iqbal","","Head Chair"],["Ling Chin Wei","","Co-Chair"]],
+IAEA:[["Liang Weiyi (Michelle)","","Head Chair"],["Nur Ahdia Izyan binti Che Ibrahim","","Co-Chair"]],
+WB:[["Chrismond Heng Hao Yin","","Head Chair"],["Sarah Abdul Hakkim","","Co-Chair"]],
+DR:[["Amirah Fatimah binti Salahul Ahamed","","Tuan Speaker"],["Wan Ahmad Raqib Wan Abdillah","","Timbalan Speaker I"],["Muhammad Nur Iman Mirza","","Timbalan Speaker II"],["Muhammad Nadim Fitri","","Setiausaha"]],
+CRISIS:[["Tushar","","Head Chair"],["Teah Yang","","Co-Chair"],["Lauren Lopez","","Crisis Director"],["Dylan Lim Jingyao","","Crisis Co-Director"]],
+UNCA:[["Dee Emeralda","","Chief Editor"],["Phang Shayne","","Co-Editor"]]
 };
 var TEAM=[
 ["Secretary-General","Hani Nursyahira Binti Muhamat Halis"],
@@ -735,7 +737,7 @@ var TEAM=[
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 $("#resgrid").innerHTML=RESOURCES.map(function(r){return'<article class="rescard"><h3>'+esc(r[0])+'</h3><p>'+esc(r[1])+'</p>'+(r[2]?'<a class="btn" href="'+esc(r[2])+'" target="_blank" rel="noopener">Open</a>':'<span class="soon">Link coming soon</span>')+'</article>'}).join("");
 $("#chairrows").innerHTML=COMMITTEES.map(function(c){var ch=CHAIRS[c[0]];
-return'<tr><td>'+esc(c[1])+'</td><td>'+esc(c[5]||"")+'</td><td>'+(ch&&ch.length?ch.map(function(x){return'<div class="chair">'+esc(x[0])+(x[1]?' <span class="mail">'+esc(x[1])+'</span>':'')+'</div>'}).join(""):'<span class="soon">To be announced</span>')+'</td></tr>'}).join("");
+return'<tr><td>'+esc(c[1])+'</td><td>'+esc(c[5]||"")+'</td><td>'+(ch&&ch.length?ch.map(function(x){return'<div class="chair">'+(x[2]?'<span class="pos">'+esc(x[2])+'</span>':'')+esc(x[0])+(x[1]?' <span class="mail">'+esc(x[1])+'</span>':'')+'</div>'}).join(""):'<span class="soon">To be announced</span>')+'</td></tr>'}).join("");
 $("#team").innerHTML=TEAM.map(function(t){return'<li><b>'+esc(t[0])+'</b><span>'+esc(t[1])+'</span></li>'}).join("");
 
 
@@ -745,7 +747,7 @@ $("#dt").textContent=c[1];
 $("#db").innerHTML=(c[4]?'<img class="dlogo" src="'+c[4]+'" alt="">':"")
 +c[3].map(function(t,k){return'<p><b>'+(c[3].length>1?"Agenda "+(k+1):"Topic")+'</b><br>'+esc(t)+'</p>'}).join("")
 +(c[5]?'<p><b>Room</b><br>'+esc(c[5])+', AHAS KIRKHS</p>':"")
-+'<p><b>Chairs</b><br>'+(ch&&ch.length?ch.map(function(x){return esc(x[0])+(x[1]?' <span class="mail">'+esc(x[1])+'</span>':'')}).join("<br>"):'<span class="soon">To be announced</span>')+'</p>'
++'<p><b>Chairs</b><br>'+(ch&&ch.length?ch.map(function(x){return(x[2]?'<span class="pos">'+esc(x[2])+'</span> ':'')+esc(x[0])+(x[1]?' <span class="mail">'+esc(x[1])+'</span>':'')}).join("<br>"):'<span class="soon">To be announced</span>')+'</p>'
 +'<p><a href="#resources" id="dres">Delegate resources</a></p>';
 $("#dres").onclick=function(){$("#dlg").close()};
 $("#dlg").showModal()}
